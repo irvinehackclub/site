@@ -1,8 +1,11 @@
-import * as React from 'react'
 import NextApp from 'next/app'
+import * as React from 'react'
 
-import '@hackclub/theme/fonts/reg-bold.css'
 import theme from '@hackclub/theme'
+import '@hackclub/theme/fonts/reg-bold.css'
+import "../styles/globals.scss"
+
+theme.mode = "light";
 theme.colors.primary = '#375F3D';
 theme.colors.secondary = '#8BCCEE';
 
@@ -17,15 +20,15 @@ theme.fonts = {
 theme.text.eyebrow.fontFamily = '"Phantom Sans"';
 
 import { ThemeProvider } from 'theme-ui'
-import ColorSwitcher from '../components/color-switcher'
 
 export default class App extends NextApp {
   render() {
     const { Component, pageProps } = this.props
+
     return (
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
-        <ColorSwitcher />
+        {/* <ColorSwitcher /> */}
       </ThemeProvider>
     )
   }

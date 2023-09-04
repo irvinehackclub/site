@@ -2,6 +2,7 @@ import { IconButton, useColorMode } from 'theme-ui'
 
 const ColorSwitcher = (props) => {
   const [mode, setMode] = useColorMode()
+  
   return (
     <IconButton
       onClick={() => setMode(mode === 'dark' ? 'light' : 'dark')}
@@ -11,6 +12,7 @@ const ColorSwitcher = (props) => {
         top: [2, 3],
         right: [2, 3],
         color: 'primary',
+        zIndex: 999999,
         cursor: 'pointer',
         borderRadius: 'circle',
         transition: 'box-shadow .125s ease-in-out',
