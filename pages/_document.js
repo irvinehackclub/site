@@ -11,11 +11,9 @@ export default class extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* favicoon */}
           <link rel="shortcut icon" href="/logo.png" />
           <link rel="icon" href="/logo.png" />
           <link rel="favicon" href="/logo.png" />
-          
         </Head>
         <body>
           <InitializeColorMode />

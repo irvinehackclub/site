@@ -1,4 +1,5 @@
 import Icon from '@hackclub/icons';
+import Head from 'next/head';
 import Image from 'next/image'
 import { Box, Flex, Heading, NavLink, Button, Text } from 'theme-ui'
 
@@ -44,6 +45,9 @@ export default function Page() {
 
   return (
     <>
+      <Head>
+        <title>Irvine Hack Club</title>
+      </Head>
       <Navbar />
       <Box
         sx={{
