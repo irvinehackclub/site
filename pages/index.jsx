@@ -1,5 +1,6 @@
+import Icon from '@hackclub/icons';
 import Image from 'next/image'
-import { Box, Flex, Heading, NavLink } from 'theme-ui'
+import { Box, Flex, Heading, NavLink, Button, Text } from 'theme-ui'
 
 function Navbar() {
   return (
@@ -22,14 +23,25 @@ function Navbar() {
       <NavLink href="#!" p={2}>
         Irvine Hack Club
       </NavLink>
-      <NavLink href="#!" p={2} sx={{ ml: 'auto' }}>
-        Instagram
-      </NavLink>
+      <Flex sx={{ ml: 'auto' }}>
+        <NavLink href="#!" p={2}>
+          Instagram
+        </NavLink>
+        <NavLink href="#!" p={2}>
+          Discord
+        </NavLink>
+        <NavLink href="#!" p={2}>
+          Remind
+        </NavLink>
+      </Flex>
     </Flex>
   )
 }
 
 export default function Page() {
+  const meetingText = 'our interest meeting';
+  const meetingDate = 'Next Tuesday, September 12th'
+
   return (
     <>
       <Navbar />
@@ -46,7 +58,7 @@ export default function Page() {
           }}
         >
           <img
-            src="/cover.jpg"
+            src="https://cloud-8lj4t1m8o-hack-club-bot.vercel.app/0image__45_-min__1_.png"
             style={{
               position: 'absolute',
               top: 0,
@@ -70,17 +82,43 @@ export default function Page() {
             }}
           >
             <Heading variant="eyebrow">CALLING ALL STUDENTS&nbsp;TO</Heading>
-            <Heading color="#375F3D" variant="ultratitle" as="h1">
+            <Heading color="primary" variant="ultratitle" sx={{ fontSize: [5, 6, 7, 8] }} as="h1">
               Make cool stuff
             </Heading>
             <Heading
-              color="#375F3D"
-              sx={{ opacity: 0.6 }}
+              color="green"
               variant="subtitle"
+              sx={{
+                fontWeight: '500',
+              }}
               as="h1"
             >
               Regardless of coding experience
             </Heading>
+
+            <Flex sx={{
+              flexDirection: ['column', 'column', 'row'],
+              alignItems: ['start', 'start', 'center'],
+              mt: 5,
+              // gap 10px, add css
+              gap: [2, 2, 3]
+            }}>
+              <Button>Join us for {meetingText} →</Button>
+
+              <Flex sx={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                // gap 10px, add css
+                gap: 1
+              }}>
+                <Icon glyph="event-check" size={24} />
+                <Text sx={{
+                  my: '0px!important'
+                }}>
+                  {meetingDate}
+                </Text>
+              </Flex>
+            </Flex>
           </Box>
         </Box>
       </Box>
