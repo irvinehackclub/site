@@ -50,7 +50,7 @@ export default function Page() {
             CALLING ALL STUDENTS TO
           </Heading>
           <Heading variant="title" color="white" as="h1">
-            Make cool shit
+            Make cool stuff
           </Heading>
         </Box>
       </Box>
