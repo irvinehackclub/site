@@ -1,3 +1,34 @@
-*:not(.material-symbols-outlined) {
-  font-family: 'Space Grotesk', sans-serif !important;
+// *:not(.material-symbols-outlined) {
+//   font-family: 'Space Grotesk', sans-serif !important;
+// }
+
+@keyframes rainbow {
+  0% {
+    background-color: #FF5169;
+    color: #8F2433;
+  }
+  17% {
+    background-color: #FF994E;
+    color: #844B21;
+  }
+  33% {
+    background-color: #FFDB4D;
+    color: #806816;
+  }
+  50% {
+    background-color: #5AFFCD;
+    color: #095365;
+  }
+  66% {
+    background-color: #4FAFFF;
+    color: #1E5B8D;
+  }
+  83% {
+    background-color: #D164FF;
+    color: #580965;
+  }
+  100% {
+    background-color: #FF5169;
+    color: #8F2433;
+  }
 }

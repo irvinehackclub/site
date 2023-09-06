@@ -2,9 +2,11 @@ import Icon from '@hackclub/icons'
 import dayjs from 'dayjs'
 import Head from 'next/head'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { Box, Flex, Heading, NavLink, Button, Text, IconButton } from 'theme-ui'
+import { theme } from '../lib/theme'
+import { useModal } from '../components/modal'
 var relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
 
@@ -100,9 +102,89 @@ function Navbar() {
   )
 }
 
+export function HeroCard({ title, subtitleIcon, subtitle, ctaIcon, style, onClick }) {
+  let borderColor;
+
+  if (style.color) {
+    const { color } = style;
+
+    if (theme.colors[color]) borderColor = theme.colors[color] + '40';
+    else if (color.startsWith('#')) borderColor = color + '40';
+    else borderColor = 'rgba(255, 255, 255, .2)';
+  }
+
+  return (
+    <Button
+      sx={{
+        display: 'flex',
+        borderRadius: 5,
+        gap: 3,
+        minWidth: ['min(100%, 400px)', '400px', 'unset'],
+        justifyContent: ['space-between', 'space-between', 'unset'],
+        ...style
+      }}
+      onClick={onClick}
+    >
+      <Box sx={{ flexDirection: 'column', alignItems: 'start' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            textAlign: 'left',
+            gap: 2
+          }}
+        >
+          {title}
+        </Box>{' '}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            fontSize: '13px',
+            fontWeight: 500
+          }}
+        >
+          <Box sx={{
+            display: ['none', 'block', 'block']
+          }}>
+            <Icon glyph={subtitleIcon} size={24} />
+          </Box>
+          <Text sx={{ my: '0px!important' }}>
+            {subtitle}
+          </Text>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          width: 45,
+          height: 45,
+          flexShrink: 0,
+          border: '1px solid',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: 999,
+          borderColor: borderColor || 'rgba(255, 255, 255, .2)'
+        }}
+      >
+        <Icon glyph={ctaIcon} size={40} style={{ margin: '0px' }} />
+      </Box>
+    </Button>
+  );
+}
+
 export default function Page() {
-  const meetingText = 'our interest meeting'
-  const meetingDate = dayjs('9/12/2023')
+  const nextMeeting = {
+    date: dayjs('9/12/2023'),
+    title: 'our interest meeting'
+  };
+
+  const announcement = {
+    date: dayjs('9/5/2023'),
+    title: 'Kicking off the 2024 school year',
+  }
+
+  const InterestMeetingModal = useModal("Interest Meeting RSVP");
 
   return (
     <>
@@ -159,27 +241,17 @@ export default function Page() {
             }}
             as="h1"
           >
-            It&apos;s time to craft&nbsp;the{' '}
+            It&apos;s time to build&nbsp;the{' '}
             <span
               style={{
-                background: 'linear-gradient(90deg, #8BCCEE, #7db586)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                animation: `60s infinite rainbow linear`,
+                paddingLeft: '8px',
+                paddingRight: '8px',
+                borderRadius: '8px',
                 display: 'inline-flex'
               }}
             >
-              extraordinary&nbsp;
-              <span
-                className="material-symbols-outlined"
-                style={{
-                  fontSize: 'inherit',
-                  marginLeft: '-15px',
-                  verticalAlign: 'middle'
-                }}
-              >
-                arrow_forward_ios
-              </span>
+              extraordinary
             </span>
           </Heading>
           <Heading
@@ -193,57 +265,42 @@ export default function Page() {
           >
             Unleash your creativity - with code. No experience necessary.
           </Heading>
-          <Button
-            sx={{
-              mt: 2,
-              display: 'flex',
-              borderRadius: 5,
-              gap: 3
-            }}
-          >
-            <Box sx={{ flexDirection: 'column', alignItems: 'start' }}>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 2
-                }}
-              >
-                Join us for {meetingText}{' '}
-              </Box>{' '}
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  fontSize: '13px',
-                  fontWeight: 500
-                }}
-              >
-                <Icon glyph="event-check" size={24} />
-                <Text sx={{ my: '0px!important' }}>
-                  Next meeting {meetingDate.fromNow()} &bull;{' '}
-                  {meetingDate.format('MMM DD')}
-                </Text>
-              </Box>
-            </Box>
-            <Box
-              sx={{
-                width: 45,
-                height: 45,
-                flexShrink: 0,
-                border: '1px solid',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: 999,
-                borderColor: 'rgba(255, 255, 255, .2)'
-              }}
-            >
-              <span className="material-symbols-outlined">east</span>
-            </Box>
-          </Button>
+          <Flex sx={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            gap: [2, 2, 3],
+            mt: 2
+          }}>
+            <HeroCard
+              title={`Join us for ${nextMeeting.title}`}
+              subtitle={<>
+                Next meeting {nextMeeting.date.fromNow()} in room S1 &bull;{' '}
+                {nextMeeting.date.format('MMM D')} at lunch
+              </>}
+              subtitleIcon="event-check"
+              ctaIcon="enter"
+              onClick={() => InterestMeetingModal.toggle()}
+              style={{
+                background: 'green'
+              }} />
+            <HeroCard
+              title={announcement.title}
+              subtitle={<>
+                Latest announcement &bull;{' '}
+                {announcement.date.format('MMM D')}
+              </>}
+              subtitleIcon="announcement"
+              ctaIcon="external"
+              style={{
+                background: 'white',
+                color: 'blue'
+              }} />
+          </Flex>
         </Box>
       </Box>
+      <InterestMeetingModal>
+        hello there
+      </InterestMeetingModal>
     </>
   )
 }
