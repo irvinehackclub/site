@@ -10,6 +10,14 @@ import { useModal } from '../components/modal'
 var relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
 
+class Announcement {
+  constructor (date, title, body) {
+    this.date = dayjs(date);
+    this.title = title;
+    this.body = body;
+  }
+}
+
 function Navbar() {
   const [open, setOpen] = useState(false)
 
@@ -179,10 +187,10 @@ export default function Page() {
     title: 'our interest meeting'
   };
 
-  const announcement = {
-    date: dayjs('9/5/2023'),
-    title: 'Kicking off the 2024 school year',
-  }
+  const announcements = [
+    new Announcement('9/5/2023', 'Kicking off the 2024 school year', `This is the announcement body`),
+    new Announcement('9/5/2023', 'Kicking off the 2024 school year', `This is the announcement body`),
+  ]
 
   const InterestMeetingModal = useModal("Interest Meeting RSVP", { shell: 'content '});
   const AnnouncementsModal = useModal("Latest Announcements", { shell: 'blocks' });
@@ -280,19 +288,19 @@ export default function Page() {
               </>}
               subtitleIcon="event-check"
               ctaIcon="enter"
-              onClick={() => InterestMeetingModal.toggle()}
+              onClick={() => InterestMeetingModal.open()}
               style={{
                 background: 'green'
               }} />
             <HeroCard
-              title={announcement.title}
+              title={announcements[0].title}
               subtitle={<>
                 Latest announcement &bull;{' '}
-                {announcement.date.format('MMM D')}
+                {announcements[0].date.format('MMM D')}
               </>}
               subtitleIcon="announcement"
               ctaIcon="external"
-              onClick={() => AnnouncementsModal.toggle()}
+              onClick={() => AnnouncementsModal.open()}
               style={{
                 background: 'white',
                 color: 'blue'
@@ -301,17 +309,25 @@ export default function Page() {
         </Box>
       </Box>
       <InterestMeetingModal>
-        hello there
+        (RSVP form under construction)
       </InterestMeetingModal>
       <AnnouncementsModal>
         <Box sx={{
           minHeight: '300px'
         }}>
-          <Flex sx={{
-            p: [3, 4]
-          }}>
-            hello
-          </Flex>
+          {announcements.map((announcement, i) => (
+            <>
+              {i > 0 && <hr style={{ margin: '0px', marginLeft: '16px', width: 'calc(100% - 32px)' }} />}
+              <Flex sx={{
+                px: [3, 4],
+                py: 3,
+                flexDirection: "column"
+              }}>
+                <Heading variant="subheadline" mt={0} mb={2}>{announcement.title}</Heading>
+                <Text my={0}>{announcement.body}</Text>
+              </Flex>
+            </>
+          ))}
         </Box>
       </AnnouncementsModal>
     </>

@@ -52,9 +52,7 @@ function ContentShell ({ title, modalState, children }) {
                 minWidth: '50vw',
                 maxHeight: '90vh',
                 overflow: 'auto',
-                p: 3,
-                zIndex: 1000000,
-                position: 'relative'
+                p: 3
             }}>
                 <Flex sx={{
                     alignItems: 'center',
@@ -81,9 +79,7 @@ function BlocksShell ({ title, modalState, children }) {
                 minWidth: '50vw',
                 maxHeight: '90vh',
                 overflow: 'auto',
-                padding: '0px!important',
-                zIndex: 1000000,
-                position: 'relative'
+                padding: '0px!important'
             }}>
                 <Flex sx={{
                     flexDirection: 'column',
