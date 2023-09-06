@@ -184,7 +184,8 @@ export default function Page() {
     title: 'Kicking off the 2024 school year',
   }
 
-  const InterestMeetingModal = useModal("Interest Meeting RSVP");
+  const InterestMeetingModal = useModal("Interest Meeting RSVP", { shell: 'content '});
+  const AnnouncementsModal = useModal("Latest Announcements", { shell: 'blocks' });
 
   return (
     <>
@@ -291,6 +292,7 @@ export default function Page() {
               </>}
               subtitleIcon="announcement"
               ctaIcon="external"
+              onClick={() => AnnouncementsModal.toggle()}
               style={{
                 background: 'white',
                 color: 'blue'
@@ -301,6 +303,17 @@ export default function Page() {
       <InterestMeetingModal>
         hello there
       </InterestMeetingModal>
+      <AnnouncementsModal>
+        <Box sx={{
+          minHeight: '300px'
+        }}>
+          <Flex sx={{
+            p: [3, 4]
+          }}>
+            hello
+          </Flex>
+        </Box>
+      </AnnouncementsModal>
     </>
   )
 }
