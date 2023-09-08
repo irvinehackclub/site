@@ -281,11 +281,13 @@ export default function Page() {
             mt: 2
           }}>
             <HeroCard
-              title={`Join us for ${nextMeeting.title}`}
-              subtitle={<>
-                Next meeting {nextMeeting.date.fromNow()} in room S1 &bull;{' '}
-                {nextMeeting.date.format('MMM D')} at lunch
-              </>}
+              // title={`Join us for ${nextMeeting.title}`}
+              // subtitle={<>
+              //   Next meeting {nextMeeting.date.fromNow()} in room S1 &bull;{' '}
+              //   {nextMeeting.date.format('MMM D')} at lunch
+              // </>}
+              title="Join us for our interest meeting"
+              subtitle="Date TBD at lunch in room S1"
               subtitleIcon="event-check"
               ctaIcon="enter"
               onClick={() => InterestMeetingModal.open()}
