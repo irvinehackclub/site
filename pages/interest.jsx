@@ -10,7 +10,7 @@ export default function Interest () {
             justifyContent: 'center',
             alignItems: 'center'
         }}>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSec08cro79830ch3YEX6zHUhyOPD5fHHLJfU068XFLIGEwVOA/viewform?embedded=true" width="640" style={{ height: '100vh', background: '#ffffff99' }} frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSec08cro79830ch3YEX6zHUhyOPD5fHHLJfU068XFLIGEwVOA/viewform?embedded=true" width="640" style={{ height: '100vh', width: '100vw', background: '#ffffff99' }} frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
     )
 }
