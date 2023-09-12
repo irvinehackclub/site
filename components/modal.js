@@ -1,5 +1,5 @@
 import Icon from "@hackclub/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Button, Card, Flex, Heading } from "theme-ui";
 
 function DefaultBox ({ children, modalState }) {
@@ -125,6 +125,18 @@ export function useModal (title = "Modal", { shell = 'content' }) {
             </ModalShell>
         );
     }
+
+    useEffect(() => {
+        const keydown = e => {
+            if (e.key == "Escape") {
+                setIsOpen(false);
+            }
+        };
+
+        window.addEventListener('keydown', keydown);
+
+        return () => window.removeEventListener('keydown', keydown);      
+    });
 
     Modal.toggle = () => setIsOpen(isOpen => !isOpen);
     Modal.open = () => setIsOpen(true);
