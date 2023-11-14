@@ -80,7 +80,7 @@ export default function Hero ({ announcements }) {
     title: 'our interest meeting'
   };
 
-  const InterestMeetingModal = useModal("November 2nd Meeting", { shell: 'content' });
+  const InterestMeetingModal = useModal("November 16th Meeting", { shell: 'content' });
   const AnnouncementsModal = useModal("Latest Announcements", { shell: 'blocks' });
 
   return (
@@ -171,7 +171,7 @@ export default function Hero ({ announcements }) {
               //   {nextMeeting.date.format('MMM D')} at lunch
               // </>}
               title="Join us for our next meeting"
-              subtitle="Nov 2nd at lunch in room S1"
+              subtitle="Nov 16th at lunch in room S1"
               subtitleIcon="event-check"
               ctaIcon="enter"
               onClick={() => InterestMeetingModal.open()}
