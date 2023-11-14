@@ -20,8 +20,15 @@ window.sound = (name = 'random') => {
 		meow: 0.8,
 	};
 
-	if (name == "random")
-		name = Object.keys(sounds).sort(() => Math.random() - 0.5)[0];
+	if (name == "random") {
+		let chosenSound = '';
+		while (chosenSound && chosenSound != window.__lastSoundPlayed) {
+			chosenSound = Object.keys(sounds).sort(() => Math.random() - 0.5)[0];
+		}
+
+		window.__lastSoundPlayed = chosenSound;
+		name = chosenSound;
+	}
 
 	if (!sounds[name])
 		return alert(
