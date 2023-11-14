@@ -16,7 +16,7 @@ window.sound = (name = 'random') => {
 		duck: 0.8,
 		error: 0.9,
 		huh: 0.75,
-		mario: 0.6,
+		mario: 0.5,
 		meow: 0.8,
 	};
 
