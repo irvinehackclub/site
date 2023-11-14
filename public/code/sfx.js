@@ -1,6 +1,6 @@
 window.sound = (name = 'random') => {
 	const displayList = (list, conjunction = "or") =>
-		Object.keys(list)
+		list
 			.slice(0, -1)
 			.reverse()
 			.map((item, index) => (index == 0 ? conjunction + " " + item : item))
