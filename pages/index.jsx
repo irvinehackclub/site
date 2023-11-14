@@ -94,8 +94,7 @@ export default function Page() {
       <Navbar />
 
       <Section.Hero announcements={[
-        new Announcement('9/5/2023', 'Kicking off the 2024 school year', `This is the announcement body`),
-        new Announcement('9/5/2023', 'Kicking off the 2024 school year', `This is the announcement body`),
+        new Announcement('9/5/2023', 'Kicking off the 2024 school year', `Hack Club is a new club to Irvine High School established to help students build creative coding projects collaboratively with friends. We meet every other Thursday in S1. We hope to see you there!`),
       ]} />
 
       {/* <Section.About /> */}

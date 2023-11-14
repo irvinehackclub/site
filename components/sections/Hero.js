@@ -80,7 +80,7 @@ export default function Hero ({ announcements }) {
     title: 'our interest meeting'
   };
 
-  const InterestMeetingModal = useModal("Interest Meeting RSVP", { shell: 'content ' });
+  const InterestMeetingModal = useModal("November 2nd Meeting", { shell: 'content' });
   const AnnouncementsModal = useModal("Latest Announcements", { shell: 'blocks' });
 
   return (
@@ -170,8 +170,8 @@ export default function Hero ({ announcements }) {
               //   Next meeting {nextMeeting.date.fromNow()} in room S1 &bull;{' '}
               //   {nextMeeting.date.format('MMM D')} at lunch
               // </>}
-              title="Join us for our interest meeting"
-              subtitle="Date TBD at lunch in room S1"
+              title="Join us for our next meeting"
+              subtitle="Nov 2nd at lunch in room S1"
               subtitleIcon="event-check"
               ctaIcon="enter"
               onClick={() => InterestMeetingModal.open()}
@@ -195,11 +195,22 @@ export default function Hero ({ announcements }) {
         </Box>
       </Box>
       <InterestMeetingModal>
-        (RSVP form under construction)
+        Join us for our next meeting where we'll build a surprise halloween-themed project!
+
+        <br />
+        <br />
+
+        You can fund is in room S1 at lunch this Thursday.
+
+        <br />
+        <br />
+
+        For any questions, reach out to us on Instagram: <a href="https://instagram.com/irvine.hackclub" target="_blank">@irvine.hackclub</a>.
       </InterestMeetingModal>
       <AnnouncementsModal>
         <Box sx={{
-          minHeight: '300px'
+          minHeight: '300px',
+          maxWidth: '600px'
         }}>
           {announcements.map((announcement, i) => (
             <>
