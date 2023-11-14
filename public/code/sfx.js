@@ -22,7 +22,7 @@ window.sound = (name = 'random') => {
 
 	if (name == "random") {
 		let chosenSound;
-		while (chosenSound && chosenSound != window.__lastSoundPlayed) {
+		while (!chosenSound || chosenSound == window.__lastSoundPlayed) {
 			chosenSound = Object.keys(sounds).sort(() => Math.random() - 0.5)[0];
 		}
 
