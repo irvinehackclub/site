@@ -36,6 +36,14 @@ window.PaintSDK = (() => {
     beginPath () {
       this.context.beginPath();
     }
+
+    static timeColor (loopIntervalInSeconds = 10) {
+      const hue = ((Date.now() / 1000) / (loopIntervalInSeconds / 360)) % 360; // Rotate every 10 seconds
+      const saturation = 100;
+      const lightness = 50;
+
+      return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    }
   }
 
   return PaintSDK;
