@@ -18,6 +18,8 @@
         async ask (prompt) {
             console.log('[AI] asking:', prompt);
 
+            this.loading = true;
+
             const { response } = await fetch(aiEndpoint, {
                 method: "POST",
                 headers: {
@@ -30,6 +32,8 @@
             }).then(res => res.json());
 
             console.log('[AI] response:', response);
+
+            this.loading = false;
 
             return response;
         }
