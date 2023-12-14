@@ -1,3 +1,11 @@
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+    apiKey: process.env.OAI,
+    dangerouslyAllowBrowser: true,
+    baseURL: "https://jamsapi.hackclub.dev/openai/",
+});
+
 export default async function handler (req, res) {
     res.setHeader('Access-Control-Allow-Credentials', true)
     res.setHeader('Access-Control-Allow-Origin', '*') // replace this your actual origin
@@ -28,7 +36,6 @@ export default async function handler (req, res) {
             })
         }).then(res => res.json());
 
-        console.log(authResponse);
 
         const { projectId, projectName, projectSlug, success } = authResponse;
 
@@ -37,8 +44,11 @@ export default async function handler (req, res) {
                 response: errorResponse + ' (Code A)'
             });
         }
-        
-        const response = 'not implemented';
+        const completion= await openai.chat.completions.create({
+            messages: [{ role: "system", content: "You are a helpful assistant." }],
+            model: "gpt-3.5-turbo",
+          })
+        const response = completion.choices[0].message;
 
         await fetch("https://hooks.slack.com/triggers/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", {
             method: "POST",
