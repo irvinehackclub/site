@@ -36,7 +36,6 @@ export default async function handler (req, res) {
             })
         }).then(res => res.json());
 
-
         const { projectId, projectName, projectSlug, success } = authResponse;
 
         if (!success) {
@@ -52,7 +51,7 @@ export default async function handler (req, res) {
 
         const response = completion.choices[0].message.content;
 
-        await fetch("https://hooks.slack.com/triggers/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", {
+        fetch("https://hooks.slack.com/triggers/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", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
