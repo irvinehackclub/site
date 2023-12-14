@@ -8,6 +8,8 @@
             if (parts.length === 2) return parts.pop().split(';').shift();
       }
 
+      window.$ = (...args) => document.getElementById(...args);
+
     class AI {
         constructor (token) {
             this.token = token || getCookie("vaqprojid");
