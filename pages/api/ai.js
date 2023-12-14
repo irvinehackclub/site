@@ -18,14 +18,13 @@ export default async function handler (req, res) {
     const errorResponse = `This function requires authorization.`
 
     try {
-        const authResponse = await fetch("https://api.vaq.dev/projects/create", {
+        const authResponse = await fetch("https://vaquero.dev/api/validate-project", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token,
-                prompt
+                id: token,
             })
         }).then(res => res.json());
 
