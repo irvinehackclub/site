@@ -151,7 +151,7 @@ document.head.appendChild(style);
         async ask (prompt) {
             console.log('[AI] asking:', prompt);
 
-            if (this.spinner) this.spinner.display = 'block';
+            if (this.spinner) this.spinner.style.display = 'block';
 
             const { response } = await fetch(aiEndpoint, {
                 method: "POST",
@@ -166,7 +166,7 @@ document.head.appendChild(style);
 
             console.log('[AI] response:', response);
 
-            if (this.spinner) this.spinner.display = 'none';
+            if (this.spinner) this.spinner.style.display = 'none';
             return response;
         }
 
