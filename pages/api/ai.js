@@ -1,11 +1,5 @@
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-    apiKey: process.env.OAI,
-    dangerouslyAllowBrowser: true,
-    baseURL: "https://jamsapi.hackclub.dev/openai/",
-});
-
 export default async function handler (req, res) {
     res.setHeader('Access-Control-Allow-Credentials', true)
     res.setHeader('Access-Control-Allow-Origin', '*') // replace this your actual origin
@@ -43,6 +37,12 @@ export default async function handler (req, res) {
                 response: errorResponse + ' (Code A)'
             });
         }
+
+        const openai = new OpenAI({
+            apiKey: process.env.OAI,
+            dangerouslyAllowBrowser: true,
+            baseURL: "https://jamsapi.hackclub.dev/openai/",
+        });
 
         const completion = await openai.chat.completions.create({
             messages: [{ role: "system", content: prompt }],
