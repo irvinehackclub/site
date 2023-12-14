@@ -13,7 +13,7 @@
         }
 
         async ask (prompt) {
-            const response = await fetch(aiEndpoint, {
+            const { response } = await fetch(aiEndpoint, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
