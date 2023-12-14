@@ -31,7 +31,7 @@ export default async function handler (req, res) {
 
         if (!success) {
             return res.status(401).json({
-                response: errorResponse
+                response: errorResponse + ' (Code A)'
             });
         }
         
@@ -56,7 +56,7 @@ export default async function handler (req, res) {
         });
     } catch (err) {
         return res.status(401).json({
-            response: errorResponse
+            response: errorResponse + ' (Code B)'
         });
     }
 }
