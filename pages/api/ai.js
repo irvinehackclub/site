@@ -51,20 +51,6 @@ export default async function handler (req, res) {
 
         const response = completion.choices[0].message.content;
 
-        fetch("https://hooks.slack.com/triggers/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", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                project_id: projectId,
-                project_name: projectName,
-                project_url: `https://${projectSlug}.vaquero.dev`,
-                prompt,
-                output: response
-            })
-        });
-
         return res.status(200).json({
             response
         });
