@@ -48,7 +48,7 @@ export default async function handler (req, res) {
             messages: [{ role: "system", content: "You are a helpful assistant." }],
             model: "gpt-3.5-turbo",
           })
-        const response = completion.choices[0].message;
+        const response = completion.choices[0].message.content;
 
         await fetch("https://hooks.slack.com/triggers/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", {
             method: "POST",
