@@ -61,7 +61,7 @@ export default async function handler (req, res) {
                 project_name: projectName,
                 project_url: `https://${projectSlug}.vaquero.dev`,
                 prompt,
-                response
+                output: response
             })
         });
 
