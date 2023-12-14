@@ -18,7 +18,7 @@ export default async function handler (req, res) {
     const errorResponse = `This function requires authorization.`
 
     try {
-        const { projectId, projectName, projectSlug, success } = await fetch("https://api.vaq.dev/projects/create", {
+        const authResponse = await fetch("https://api.vaq.dev/projects/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -28,6 +28,10 @@ export default async function handler (req, res) {
                 prompt
             })
         }).then(res => res.json());
+
+        console.log(authResponse);
+
+        const { projectId, projectName, projectSlug, success } = authResponse;
 
         if (!success) {
             return res.status(401).json({
