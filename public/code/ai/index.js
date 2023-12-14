@@ -10,9 +10,12 @@
     class AI {
         constructor (token) {
             this.token = token || getCookie("vaqprojid");
+            console.log('[AI] token:', this.token);
         }
 
         async ask (prompt) {
+            console.log('[AI] asking:', prompt);
+
             const { response } = await fetch(aiEndpoint, {
                 method: "POST",
                 headers: {
@@ -23,6 +26,8 @@
                     prompt
                 })
             }).then(res => res.json());
+
+            console.log('[AI] response:', response);
 
             return response;
         }
