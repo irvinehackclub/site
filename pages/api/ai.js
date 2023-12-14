@@ -1,4 +1,18 @@
 export default async function handler (req, res) {
+    res.setHeader('Access-Control-Allow-Credentials', true)
+    res.setHeader('Access-Control-Allow-Origin', '*') // replace this your actual origin
+    res.setHeader('Access-Control-Allow-Methods', 'GET,DELETE,PATCH,POST,PUT')
+    res.setHeader(
+      'Access-Control-Allow-Headers',
+      'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+    )
+  
+    // specific logic for the preflight request
+    if (req.method === 'OPTIONS') {
+      res.status(200).end()
+      return
+    }
+
     const { token, prompt } = req.body;
 
     const errorResponse = `This function requires authorization.`
