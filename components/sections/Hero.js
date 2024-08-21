@@ -3,7 +3,7 @@ import { useModal } from '../modal'
 import { Box, Flex, Heading, NavLink, Button, Text, IconButton } from 'theme-ui'
 import { theme } from '../../lib/theme'
 
-export function HeroCard({ title, subtitleIcon, subtitle, ctaIcon, style, onClick }) {
+export function HeroCard({ title, subtitleIcon, subtitle, ctaIcon, style, onClick, href }) {
   let borderColor;
 
   if (style.color) {
@@ -24,6 +24,9 @@ export function HeroCard({ title, subtitleIcon, subtitle, ctaIcon, style, onClic
         justifyContent: ['space-between', 'space-between', 'unset'],
         ...style
       }}
+      as={href ? "a" : undefined}
+      target={href ? "_blank" : undefined}
+      href={href}
       onClick={onClick}
     >
       <Box sx={{ flexDirection: 'column', alignItems: 'start' }}>
@@ -113,7 +116,7 @@ export default function Hero ({ announcements }) {
           sx={{
             width: '100%',
             px: [3, 4, 5],
-            zIndex: 99
+            zIndex: 90
           }}
         >
           <Heading
@@ -123,29 +126,18 @@ export default function Hero ({ announcements }) {
               fontSize: '20px!important'
             }}
           >
-            CALLING ALL STUDENTS&nbsp;
+            COMPUTER SCIENCE @ IRVINE HIGH SCHOOL&nbsp;
           </Heading>
           <Heading
             color="white"
             variant="ultratitle"
             sx={{
-              fontSize: [5, 6],
+              fontSize: [6, 7],
               mt: 3
             }}
             as="h1"
           >
-            It&apos;s time to build&nbsp;the{' '}
-            <span
-              style={{
-                animation: `60s infinite rainbow linear`,
-                paddingLeft: '8px',
-                paddingRight: '8px',
-                borderRadius: '8px',
-                display: 'inline-flex'
-              }}
-            >
-              extraordinary
-            </span>
+            Irvine Hack Club
           </Heading>
           <Heading
             color="white"
@@ -170,15 +162,17 @@ export default function Hero ({ announcements }) {
               //   Next meeting {nextMeeting.date.fromNow()} in room S1 &bull;{' '}
               //   {nextMeeting.date.format('MMM D')} at lunch
               // </>}
-              title="Join us for our next meeting"
-              subtitle="Nov 16th at lunch in room S1"
+              title="Join us for the upcoming school year!"
+              subtitle="Fill out the 2024-2025 interest form"
               subtitleIcon="event-check"
               ctaIcon="enter"
-              onClick={() => InterestMeetingModal.open()}
+              onClick={() => {
+                document.getElementById("interest-form").scrollIntoView({ behavior: 'smooth' });
+              }}
               style={{
                 background: 'green'
               }} />
-            <HeroCard
+            {/* <HeroCard
               title={announcements[0].title}
               subtitle={<>
                 Latest announcement &bull;{' '}
@@ -187,6 +181,18 @@ export default function Hero ({ announcements }) {
               subtitleIcon="announcement"
               ctaIcon="external"
               onClick={() => AnnouncementsModal.open()}
+              style={{
+                background: 'white',
+                color: 'blue'
+              }} /> */}
+            <HeroCard
+              title={"Follow our Instagram"}
+              subtitle={<>
+                Stay up to date on the latest
+              </>}
+              subtitleIcon="announcement"
+              ctaIcon="instagram"
+              href="https://instagram.com/irvine.hackclub"
               style={{
                 background: 'white',
                 color: 'blue'
@@ -209,8 +215,7 @@ export default function Hero ({ announcements }) {
       </InterestMeetingModal>
       <AnnouncementsModal>
         <Box sx={{
-          minHeight: '300px',
-          maxWidth: '600px'
+          minHeight: '300px'
         }}>
           {announcements.map((announcement, i) => (
             <>
@@ -218,7 +223,8 @@ export default function Hero ({ announcements }) {
               <Flex sx={{
                 px: [3, 4],
                 py: 3,
-                flexDirection: "column"
+                flexDirection: "column",
+                maxWidth: '600px'
               }}>
                 <Heading variant="subheadline" mt={0} mb={2}>{announcement.title}</Heading>
                 <Text my={0}>{announcement.body}</Text>

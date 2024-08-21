@@ -15,7 +15,6 @@ export default function Interest () {
             <Head>
             <title>Irvine Hack Club</title>
             </Head>
-            <Navbar />
     
             <Box
         sx={{
@@ -27,7 +26,9 @@ export default function Interest () {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#777'
+          background: '#46764D',
+          width: '100%',
+          height: '100vh',
         }}
       >
         <img
@@ -39,7 +40,8 @@ export default function Interest () {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            opacity: 0.7
+            opacity: 0.7,
+            filter: "blur(2px)"
           }}
         />
         <Box
@@ -54,10 +56,9 @@ export default function Interest () {
           maxWidth: 'narrowPlus',
           mx: 'auto',
           // mt: [3, 4],
-          background: 'rgb(255,255,255, 0.45)',
+          background: 'rgb(255,255,255, 0.7)',
           position: 'relative',
           zIndex: 2,
-          backdropFilter: 'blur(8px)'
         }}
       >
         <Flex
@@ -74,7 +75,7 @@ export default function Interest () {
               variant="title"
               sx={{ fontSize: [4, '36px', '42px', 6], zIndex: 2 }}
             >
-                Register Your Interest!
+                Join Hack Club
             </Text>
           </Box>
           <Grid
@@ -105,22 +106,7 @@ export default function Interest () {
                 sx={{ width: '100%', textAlign: 'start', fontSize: 2 }}
               />
             </Box>
-            <Box sx={{ width: '100%' }}>
-                <Label htmlFor="email">
-                    <Heading as="h3" sx={{ fontSize: 2, mb: 1 }}>
-                        Email Address{'  '}<span style={{ fontWeight: 'normal' }}>{'  '}(please not a school one!)</span>
-                    </Heading>
-                </Label>
-              <Input
-                autofillBackgroundColor="highlight"
-                type="email"
-                name="email"
-                id="email"
-                placeholder="orpheus@hackclub.com"
-                required
-                sx={{ width: '100%', textAlign: 'start', fontSize: 2 }}
-              />
-            </Box>
+
             <Box sx={{ width: '100%' }}>
                 <Label htmlFor="phone">
                     <Heading as="h3" sx={{ fontSize: 2, mb: 1 }}>
@@ -137,21 +123,7 @@ export default function Interest () {
                 sx={{ width: '100%', textAlign: 'start', fontSize: 2 }}
               />
             </Box>
-            <Card sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 1, mt: [2, 0] }}>
-                <Heading as="h3" sx={{ fontSize: 2, mb: 1 }}>
-                    Want to come to our first meeting?
-                </Heading>
-                <Text sx={{ fontSize: 1, my: 1 }}>
-                    Our first club meeting is next <b>Wednesday, September 20th</b> at lunch in <b>classroom S1</b>. We'll have pizza, stickers, and coding fun! The best part is that there's no experience required. Just bring yourself and your laptop!
-                </Text>
-   
-                <Label variant="labelHoriz">
-                    <Checkbox sx={{
-                        color: 'red'
-                    }} name="spot" />
-                    Yes, save me a spot!
-                </Label>
-            </Card>
+
             <Button type="submit" sx={{ mt: [2, 0], fontSize: 2 }}>
               Submit
             </Button>

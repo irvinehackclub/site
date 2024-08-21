@@ -95,8 +95,11 @@ export default function Page() {
 
       <Section.Hero announcements={[
         new Announcement('11/14/2023', 'Resources for Clicker Game', `Click below to access the starter code for the clicker game we'll make today!`),
-        new Announcement('9/5/2023', 'Kicking off the 2024 school year', `Hack Club is a new club to Irvine High School established to help students build creative coding projects collaboratively with friends. We meet every other Thursday in S1. We hope to see you there!`),
+        new Announcement('9/5/2023', 'Kicking off the 2023/2024 school year', `Hack Club is a new club to Irvine High School established to help students build creative coding projects collaboratively with friends. We meet every other Thursday in S1. We hope to see you there!`),
       ]} />
+
+      <Section.About />
+      <Section.Footer />
 
       {/* <Section.About /> */}
     </>
