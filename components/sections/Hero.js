@@ -137,7 +137,7 @@ export default function Hero ({ announcements }) {
             }}
             as="h1"
           >
-            Irvine Hack Club
+            Irvine CS
           </Heading>
           <Heading
             color="white"
@@ -163,7 +163,7 @@ export default function Hero ({ announcements }) {
               //   {nextMeeting.date.format('MMM D')} at lunch
               // </>}
               title="Join us for the upcoming school year!"
-              subtitle="Fill out the 2024-2025 interest form"
+              subtitle="Fill out the 2025-2026 interest form"
               subtitleIcon="event-check"
               ctaIcon="enter"
               onClick={() => {
@@ -192,7 +192,7 @@ export default function Hero ({ announcements }) {
               </>}
               subtitleIcon="announcement"
               ctaIcon="instagram"
-              href="https://instagram.com/irvine.hackclub"
+              href="https://instagram.com/irvine.compsci"
               style={{
                 background: 'white',
                 color: 'blue'
@@ -211,7 +211,7 @@ export default function Hero ({ announcements }) {
         <br />
         <br />
 
-        For any questions, reach out to us on Instagram: <a href="https://instagram.com/irvine.hackclub" target="_blank">@irvine.hackclub</a>.
+        For any questions, reach out to us on Instagram: <a href="https://instagram.com/irvine.compsci" target="_blank">@irvine.compsci</a>.
       </InterestMeetingModal>
       <AnnouncementsModal>
         <Box sx={{

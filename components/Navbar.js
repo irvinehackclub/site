@@ -52,7 +52,7 @@ export function Navbar() {
         >
           <Image src="/logo.png" width={50} height={50} />
           <NavLink href="/" p={3} sx={{ whiteSpace: 'nowrap' }}>
-            Irvine Hack Club
+            Irvine Computer Science
           </NavLink>
           {isMobile ? (
             <IconButton

@@ -89,7 +89,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Irvine Hack Club</title>
+        <title>Irvine CS</title>
       </Head>
       <Navbar />
 

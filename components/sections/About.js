@@ -18,7 +18,7 @@ export default function About() {
           }}
           as="h2"
         >
-          Join us for the 2024-2025 school year
+          Join us for the 2025-2026 school year
         </Heading>
         <Box sx={{
           display: "flex",
@@ -33,7 +33,7 @@ export default function About() {
             maxWidth: '100%',
           }}>
             <div id="interest-form" dangerouslySetInnerHTML={{ __html: `
-              <div style="width:100%;height:500px;" data-fillout-id="6fMAfsDC8Fus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize data-fillout-domain="forms.hackclub.com"></div><script src="https://server.fillout.com/embed/v1/"></script>
+              <div style="width:100%;height:500px;" data-fillout-id="cvf7So6JEbus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize data-fillout-domain="forms.hackclub.com"></div><script src="https://server.fillout.com/embed/v1/"></script>
               `}} />
           </Card>
         </Box>

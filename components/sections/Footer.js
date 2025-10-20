@@ -19,7 +19,7 @@ export default function Footer() {
           }}
           as="p"
         >
-          Irvine Hack Club is fiscally sponsored by The Hack Foundation, a 501(c)(3) nonprofit.
+          Irvine Computer Science is fiscally sponsored by The Hack Foundation, a 501(c)(3) nonprofit.
         </Text>
       </Box>
     </>
